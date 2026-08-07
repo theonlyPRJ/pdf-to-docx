@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF-to-DOCX Studio</title>
+    <!-- Modern Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <h1>PDF-to-DOCX Studio</h1>
+            </div>
+            <nav>
+                <button class="nav-btn active" data-target="compiler-view">Markdown Compiler</button>
+                <button class="nav-btn" data-target="converter-view">PDF Converter</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Compiler View (Markdown to DOCX) -->
+            <section id="compiler-view" class="view active">
+                <div class="split-pane">
+                    <div class="editor-pane">
+                        <div class="pane-header">
+                            <span>Markdown Input</span>
+                            <button id="compile-btn" class="primary-btn">Compile to DOCX</button>
+                        </div>
+                        <div id="monaco-editor"></div>
+                    </div>
+                    <div class="preview-pane">
+                        <div class="pane-header">
+                            <span>Compilation Output</span>
+                        </div>
+                        <div class="preview-content glassmorphism">
+                            <div class="status-box" id="compile-status">
+                                <p>Ready to compile. Write Markdown with LaTeX equations and click compile.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Converter View (PDF to DOCX) -->
+            <section id="converter-view" class="view hidden">
+                <div class="upload-container glassmorphism">
+                    <div class="upload-zone" id="drop-zone">
+                        <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        <p>Drag & Drop your PDF here</p>
+                        <p class="text-sm">or click to browse files</p>
+                        <input type="file" id="pdf-upload" accept=".pdf" hidden>
+                    </div>
+                    <div id="upload-status" class="status-box"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Monaco Editor via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs/loader.min.js"></script>
+    <script src="/static/main.js"></script>
+</body>
+</html>

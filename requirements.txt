@@ -1,0 +1,12 @@
+pdf2docx
+PyMuPDF
+python-docx
+fastapi
+uvicorn
+python-multipart
+pydantic
+click
+pytesseract
+pypandoc
+jinja2
+Pillow
